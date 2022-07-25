@@ -29,12 +29,14 @@ const CartState = ({children}) => {
         basket.map(userCartProduct => {
           db.ref(`products/${userCartProduct.product_id}`).once("value")
           .then(res => {
-            userCartProducts.push({
-              basket_id: userCartProduct.basket_id,
-              product_id: res.key,
-              count: userCartProduct.count,
-              ...res.val()
-            })
+            if(res.val() !== null){
+              userCartProducts.push({
+                basket_id: userCartProduct.basket_id,
+                product_id: res.key,
+                count: userCartProduct.count,
+                ...res.val()
+              })
+            }
             cartDispatch({
               type: "GET_USER_CART_PRODUCTS",
               userCartProducts: userCartProducts

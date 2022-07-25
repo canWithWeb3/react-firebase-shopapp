@@ -1,13 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import CartContext from '../../context/CartContext'
 import UserContext from '../../context/UserContext'
 
 const Navbar = () => {
   const navigate = useNavigate()
 
   const { getLogged, loggedUser, logoutUser } = useContext(UserContext)
-  const { logoutCart } = useContext(CartContext)
 
   useEffect(() => {
     getLogged()
@@ -15,7 +13,6 @@ const Navbar = () => {
 
   const logoutBtn = () => {
     logoutUser()
-    logoutCart()
     navigate("/giris-yap")
   }
 
@@ -27,7 +24,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mb-lg-0 my-2">
+          <ul className="d-flex align-items-center navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <Link className="text-secondary text-decoration-none dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Admin 
@@ -37,9 +34,6 @@ const Navbar = () => {
                 <li><Link className="dropdown-item" to="/admin/kategoriler">Kategoriler</Link></li>
               </ul>
             </li>
-          </ul>
-
-          <ul className="d-flex align-items-center navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/">Anasayfa</Link>
             </li>

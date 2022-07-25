@@ -110,9 +110,9 @@ const AddProduct = () => {
           setLoadingBtn(true)
 
           db.ref("products").push({
-            name: name,
-            image: image,
-            description: description,
+            name: name.trim(),
+            image: image.trim(),
+            description: description.trim(),
             price: Number(price),
             categories: selectedCategories
           }).then(res => {

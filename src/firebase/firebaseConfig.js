@@ -19,13 +19,10 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 const storage = firebase.storage();
+const auth = firebase.auth();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
-const googleLogin = () => {
-  return firebase.auth().signInWithPopup(googleAuthProvider)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
-}
+
 
 const googleLogout = () => {
   return firebase.auth().signOut()
@@ -33,7 +30,7 @@ const googleLogout = () => {
     .catch(err => console.log(err))
 }
 
-export { database as default, storage, googleLogin, googleLogout, googleAuthProvider, firebase }
+export { database as default, storage, auth, googleAuthProvider, firebase }
 
 // // set ile yapılma
 // database.ref().set({

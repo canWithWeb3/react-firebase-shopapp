@@ -64,8 +64,8 @@ const ProductCard = ({p, loggedUser}) => {
   return (
     <div className="col-lg-3 col-md-4 col-6">
       <div className="card border-0">
-        <Link to="/urun-detay" className="card-img">
-          <img src={`${p.image}`} alt="" className="img-fluid" />
+        <Link to={`/urun-detay/${p.id}`} className="card-img">
+          <img src={`${p.image}`} alt={`${p.name}`} className="img-fluid" loading='lazy' />
         </Link>
         <div className="card-body">
           <h5>{p.name}</h5>

@@ -6,7 +6,7 @@ import db from "../../../firebase/firebaseConfig"
 
 const Login = () => {
   const navigate = useNavigate()
-  const { logged } = useContext(UserContext)
+  const { logged, googleLogin } = useContext(UserContext)
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -27,6 +27,14 @@ const Login = () => {
     }
 
     return checked
+  }
+
+  const googleLoginBtn = () => {
+    setLoadingBtn(true)
+    googleLogin()
+    setTimeout(() => {
+      setLoadingBtn(false)
+    }, 3600);
   }
 
   const onSubmit = (e) => {
@@ -50,7 +58,6 @@ const Login = () => {
             exist = true
             toast.success("Giriş yapıldı.")
             logged(user)
-            navigate("/")
             setLoadingBtn(false)
           }
         })
@@ -79,14 +86,18 @@ const Login = () => {
                     { error }
                   </div>
                 ) }
+                <button disabled={loadingBtn} onClick={googleLoginBtn} className="btn btn-danger d-block w-100 text-center">
+                  <i className="fab fa-google me-2"></i> Google ile Giriş 
+                </button>
+                <hr />
                 <form onSubmit={onSubmit}>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Email:</label>
                     <input onChange={e=>setEmail(e.target.value)} type="text" className="form-control" />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="username" className="form-label">Parola:</label>
-                    <input onChange={e=>setPassword(e.target.value)} type="text" className="form-control" />
+                    <label htmlFor="password" className="form-label">Parola:</label>
+                    <input onChange={e=>setPassword(e.target.value)} type="password" className="form-control" />
                   </div>
 
                   <button className="btn-orange d-block w-100 mb-3">

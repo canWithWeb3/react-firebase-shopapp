@@ -9,10 +9,10 @@ const AdminProductsTable = ({products}) => {
         <tr>
           <th style={{ width:"70px" }}>Resim</th>
           <th style={{ width:"180px" }}>Adı</th>
-          <th>Açıklama</th>
-          <th style={{ width:"100px" }}>Fiyat</th>
-          <th style={{ width:"110px" }}>Kategoriler</th>
-          <th style={{ width:"90px" }}></th>
+          <th className='products-table-description'>Açıklama</th>
+          <th style={{ width:"70px" }}>Fiyat</th>
+          <th className='products-table-categories' style={{ width:"110px" }}>Kategoriler</th>
+          <th style={{ width:"85px" }}></th>
         </tr>
       </thead>
       <tbody>

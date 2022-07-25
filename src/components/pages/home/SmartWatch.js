@@ -12,7 +12,7 @@ const SmartWatch = () => {
           <div className="col-md-5 mx-auto text-center">
             <h1 className='mb-3'>Smart Band 4</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id optio doloribus laboriosam voluptate?</p>
-            <button className="btn-orange d-flex align-items-center mx-auto">Satın Al <i class="fas fa-long-arrow-alt-right ms-2"></i></button>
+            <button className="btn-orange d-flex align-items-center mx-auto">Satın Al <i className="fas fa-long-arrow-alt-right ms-2"></i></button>
           </div>
 
         </div>

@@ -22,6 +22,8 @@ import ProductState from './state/ProductState';
 import EditProduct from './components/admin/products/EditProduct';
 import NotFound from './components/pages/not-found/NotFound';
 import CartState from './state/CartState';
+import LoggedRoutes from './routes/LoggedRoutes';
+import NotLoggedRoutes from './routes/NotLoggedRoutes';
 
 function App() {
   return (
@@ -34,12 +36,16 @@ function App() {
               <Routes>
                 <Route path="/" element={ <Home /> } />
                 <Route path="/products" element={ <Products /> } />
-                <Route path="/urun-detay" element={ <ProductDetail /> } />
+                <Route path="/urun-detay/:productId" element={ <ProductDetail /> } />
                 <Route path="/blog" element={ <Blog /> } />
                 <Route path="/iletisim" element={ <Contact /> } />
-                <Route path="/sepet" element={ <Cart /> } />
-                <Route path="/giris-yap" element={ <Login /> } />
-                <Route path="/kayit-ol" element={ <Register /> } />
+                <Route element={ <LoggedRoutes /> }>
+                  <Route path="/sepet" element={ <Cart /> } />
+                </Route>
+                <Route element={ <NotLoggedRoutes /> }>
+                  <Route path="/giris-yap" element={ <Login /> } />
+                  <Route path="/kayit-ol" element={ <Register /> } />
+                </Route>
                 <Route path="/admin/urunler" element={ <AdminProducts /> } />
                 <Route path="/admin/urunler/urun-ekle" element={ <AddProduct /> } />
                 <Route path="/admin/urunler/urun-duzenle/:productId" element={ <EditProduct /> } />

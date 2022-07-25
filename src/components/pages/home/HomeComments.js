@@ -6,9 +6,9 @@ const HomeComments = () => {
       <div className="container">
         <div className="row d-flex gap-5 justify-content-center">
 
-          <div className="card col-md-3 shadow border-0">
+          <div className="card col-lg-3 col-md-4 shadow border-0">
             <div className="card-body text-center">
-              <span className="d-block fs-1 text-orange mb-3"><i class="fas fa-comment"></i></span>
+              <span className="d-block fs-1 text-orange mb-3"><i className="fas fa-comment"></i></span>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus dignissimos laborum quaerat.</p>
               <div className="home-comments-stars text-orange">
                 <i className="fas fa-star"></i>
@@ -24,9 +24,9 @@ const HomeComments = () => {
             </div>
           </div>
 
-          <div className="card col-md-3 shadow border-0">
+          <div className="card col-lg-3 col-md-4 shadow border-0">
             <div className="card-body text-center">
-              <span className="d-block fs-1 text-orange mb-3"><i class="fas fa-comment"></i></span>
+              <span className="d-block fs-1 text-orange mb-3"><i className="fas fa-comment"></i></span>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus dignissimos laborum quaerat.</p>
               <div className="home-comments-stars text-orange">
                 <i className="fas fa-star"></i>
@@ -42,9 +42,9 @@ const HomeComments = () => {
             </div>
           </div>
 
-          <div className="card col-md-3 shadow border-0">
+          <div className="card col-lg-3 col-md-4 shadow border-0">
             <div className="card-body text-center">
-              <span className="d-block fs-1 text-orange mb-3"><i class="fas fa-comment"></i></span>
+              <span className="d-block fs-1 text-orange mb-3"><i className="fas fa-comment"></i></span>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus dignissimos laborum quaerat.</p>
               <div className="home-comments-stars text-orange">
                 <i className="fas fa-star"></i>

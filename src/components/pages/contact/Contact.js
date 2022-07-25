@@ -1,10 +1,48 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import UserContext from "../../../context/UserContext"
+import { toast } from 'react-toastify';
 
 const Contact = () => {
-  const [name, setName] = useState()
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [comment, setComment] = useState("")
+  const [error, setError] = useState("")
 
-  const onSubmit = () => {
+  const { getLogged, loggedUser } = useContext(UserContext)
 
+  useEffect(() => {
+    getLogged()
+  }, [])
+
+  const checkForm = () => {
+    let checked = false
+    if((name.trim().length > 3 && name.trim().length < 15) || loggedUser){
+      if(email.indexOf("@") > 1 && email.indexOf(".com") > 1 || loggedUser){
+        if(comment.trim()){
+          checked = true
+        }else{
+          setError("Yorumunuzu girmediniz.")
+        }
+      }else{
+        setError("Geçerli email girmediniz.")
+      }
+    }else{
+      setError("Adınız 3 ile 15 karakter içerebilir.")
+    }
+
+    return checked
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    if(checkForm()){
+      setName()
+      setEmail()
+      setComment()
+
+      toast.success("Yorumunuz alındı.")
+    }
   }
 
   return (
@@ -39,20 +77,29 @@ const Contact = () => {
           <div className="card">
             <div className="card-header text-center"><h4 className='mb-0'>Bize Yazın</h4></div>
             <div className="card-body">
+              { error && (
+                <div className="alert alert-warning">
+                  { error }
+                </div>
+              ) }
               <form onSubmit={onSubmit}>
-                <div className="mb-3">
-                  <label className="form-label">Adınız</label>
-                  <input type="text" className="form-control" />
-                </div>
+                { !loggedUser && (
+                  <>
+                    <div className="mb-3">
+                      <label className="form-label">Adınız</label>
+                      <input onChange={e=>setName(e.target.value)} type="text" className="form-control" />
+                    </div>
 
-                <div className="mb-3">
-                  <label className="form-label">Emailiniz</label>
-                  <input type="text" className="form-control" />
-                </div>
+                    <div className="mb-3">
+                      <label className="form-label">Emailiniz</label>
+                      <input onChange={e=>setEmail(e.target.value)} type="text" className="form-control" />
+                    </div>
+                  </>
+                ) }
 
                 <div className="mb-3">
                   <label className="form-label">Yorumunuz</label>
-                  <textarea type="text" className="form-control" />
+                  <textarea onChange={e=>setComment(e.target.value)} type="text" className="form-control" />
                 </div>
 
                 <div className="text-end">

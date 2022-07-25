@@ -6,7 +6,7 @@ import UserContext from '../../../context/UserContext';
 
 const Register = () => {
   const navigate = useNavigate()
-  const { logged } = useContext(UserContext)
+  const { logged, googleLogin } = useContext(UserContext)
 
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
@@ -18,7 +18,7 @@ const Register = () => {
   const checkForm = () => {
     let checked = false
 
-    if(username.trim().length > 3 && username.trim().length < 15){
+    if((username.trim().length > 3 && username.trim().length < 15)){
       if(email.indexOf("@") > 1 && email.indexOf(".com") > 1){
         if(password.trim()){
           if(password === repassword){
@@ -37,6 +37,14 @@ const Register = () => {
     }
 
     return checked
+  }
+
+  const googleLoginBtn = () => {
+    setLoadingBtn(true)
+    googleLogin()
+    setTimeout(() => {
+      setLoadingBtn(false)
+    }, 3600);
   }
 
   const onSubmit = (e) => {
@@ -113,6 +121,10 @@ const Register = () => {
                     { error }
                   </div>
                 ) }
+                <button disabled={loadingBtn} onClick={googleLoginBtn} className="btn btn-danger d-block w-100 text-center">
+                  <i className="fab fa-google me-2"></i> Google ile Kaydol 
+                </button>
+                <hr />
                 <form onSubmit={onSubmit}>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Kullanıcı Adı:</label>
@@ -124,11 +136,11 @@ const Register = () => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Parola (Tekrar):</label>
-                    <input onChange={e=>setPassword(e.target.value)} type="text" className="form-control" />
+                    <input onChange={e=>setPassword(e.target.value)} type="password" className="form-control" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="repassword" className="form-label">Parola:</label>
-                    <input onChange={e=>setRepassword(e.target.value)} type="text" className="form-control" />
+                    <input onChange={e=>setRepassword(e.target.value)} type="password" className="form-control" />
                   </div>
 
                   <button className="btn-orange d-block w-100 mb-3">

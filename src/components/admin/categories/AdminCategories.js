@@ -11,7 +11,7 @@ const AdminCategories = () => {
   }, [])
 
   return (
-    <section id="admin-categories" className='container'>
+    <section id="admin-categories" className='container mb-5'>
 
       <div className="card my-5">
         <div className="card-body ms-auto">

@@ -157,3 +157,13 @@ input:focus, textarea:focus {
   text-decoration: none;
 }
 /* footer start */
+
+
+@media (max-width:790px) {
+  .products-table-categories{
+    display: none !important;
+  }
+  .products-table-description{
+    display: none !important;
+  }
+}
