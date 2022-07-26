@@ -18,6 +18,7 @@ import CategoryState from './state/CategoryState';
 import UserState from './state/UserState';
 import EditCategory from './components/admin/categories/EditCategory';
 import Toastify from './components/others/Toastify';
+import Github from './components/others/Github';
 import ProductState from './state/ProductState';
 import EditProduct from './components/admin/products/EditProduct';
 import NotFound from './components/pages/not-found/NotFound';
@@ -32,6 +33,7 @@ function App() {
         <ProductState>
           <CategoryState>
             <BrowserRouter>
+              <Github />
               <Navbar />
               <Routes>
                 <Route path="/" element={ <Home /> } />
