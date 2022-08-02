@@ -13,6 +13,7 @@ const AdminCategories = () => {
   return (
     <section id="admin-categories" className='container mb-5'>
 
+      {/* add category */}
       <div className="card my-5">
         <div className="card-body ms-auto">
           <Link to="/admin/kategoriler/kategori-ekle" className='btn btn-primary'><i className="fas fa-plus me-2"></i> Kategori Ekle</Link>

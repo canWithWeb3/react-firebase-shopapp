@@ -94,7 +94,7 @@ const ProductDetail = () => {
     <section id="product-detail" className='container pt-5 pb-5 mb-5'>
       
       <div className="row mb-5">
-
+        {/* product images */}
         <div className="col-md-3">
           <div id="product-big-image" className='mb-3'>
             <img src={`${product.image}`} alt="" className="img-fluid" />
@@ -106,6 +106,7 @@ const ProductDetail = () => {
             <img onClick={selectImage} src="/img/gallery-3.jpg" alt="" className="col-md-3 img-fluid d-inline-block border" />
           </div>
         </div>
+        {/* product infos and add cart */}
         <div className="col-md-7">
           <h1 className='fw-bold mb-3'>{product.name}</h1>
           <p className='text-secondary fw-bold'>${product.price}.00</p>

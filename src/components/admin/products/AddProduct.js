@@ -137,35 +137,44 @@ const AddProduct = () => {
       <div className="card my-5">
         <div className="card-header">Ürün Ekle</div>
         <div className="card-body">
+          {/* error alert */}
           { error && (
             <div className="alert alert-warning">
               { error }
             </div>
           ) }
+          {/* form */}
           <form onSubmit={onSubmit}>
             <div className="row">
               
+              {/* text inputs */}
               <div className="col-md-7">
+                {/* name */}
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">Ürün Adı:</label>
                   <input onChange={e=>setName(e.target.value)} type="text" className="form-control" />
                 </div>
+                {/* image */}
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">Ürün Resmi:</label>
                   <input onChange={e=>uploadImage(e.target.files[0])} type="file" className="form-control" />
                 </div>
+                {/* description */}
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">Ürün Açıklama:</label>
                   <textarea onChange={e=>setDescription(e.target.value)} type="text" className="form-control" rows="3"></textarea>
                 </div>
+                {/* price */}
                 <div className="mb-3 w-50">
                   <label htmlFor="name" className="form-label">Ürün Fiyat:</label>
                   <input onChange={e=>setPrice(e.target.value)} type="text" className="form-control" />
                 </div>
               </div>
 
+              {/* checkbox inputs */}
               <div className="col-md-3 ms-auto mb-5">
                 
+                {/* select category card */}
                 <div id="categories-card" className="card">
                   <div className="card-header">Kategoriler</div>
                   <div className="card-body">
@@ -178,6 +187,7 @@ const AddProduct = () => {
                   </div>
                 </div>
                 
+                {/* product image show */}
                 <div className='my-3 text-center'>
                   <img src={`${image}`} alt="" className="img-fluid" />
                 </div>
@@ -185,6 +195,7 @@ const AddProduct = () => {
 
             </div>
 
+            {/* form submit button */}
             <div className="d-flex justify-content-md-start justify-content-end">
               <button className="btn-orange">
                 { loadingBtn ? "Bekleyiniz..." : "Ürün Ekle" }

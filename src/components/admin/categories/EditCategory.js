@@ -45,12 +45,15 @@ const EditCategory = () => {
       <div className="col-lg-5 col-md-8 col-12 mx-auto card my-5">
         <div className="card-header">Kategori Düzenle</div>
         <div className="card-body">
+          {/* error alert */}
           { error && (
             <div className="alert alert-warning">
               { error }
             </div>
           ) }
+          {/* form */}
           <form onSubmit={onSubmit}>
+            {/* category name input */}
             <div className="mb-3">
               <label htmlFor="name" className="form-label">Adı:</label>
               <input 
@@ -60,6 +63,7 @@ const EditCategory = () => {
                 className="form-control" />
             </div>
 
+            {/* form submit button */}
             <button className="btn-orange me-3">
               { loadingBtn ? "Bekleyiniz..." : "Düzenle" }
             </button>

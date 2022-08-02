@@ -51,7 +51,7 @@ const Contact = () => {
       <div className="col-12 mb-3">
          <iframe className='border-0' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99683.76025247523!2d29.33616001036007!3d38.66916741580691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c87fd9700e8031%3A0xe9e1c5b72df9bba3!2zVcWfYWssIFXFn2FrIE1lcmtlei9VxZ9haw!5e0!3m2!1str!2str!4v1640245027343!5m2!1str!2str" width="100%" height="450" loading="lazy"></iframe>
       </div>
-
+      {/* contact infos */}
       <div className="row">
         <div className="col-lg-6 mb-3 order-lg-3">
           <div className="card">
@@ -72,36 +72,40 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
+        {/* send us message */}
         <div className="col-lg-6 mb-3 order-lg-2">
           <div className="card">
             <div className="card-header text-center"><h4 className='mb-0'>Bize Yazın</h4></div>
             <div className="card-body">
+              {/* error alert */}
               { error && (
                 <div className="alert alert-warning">
                   { error }
                 </div>
               ) }
+              {/* send us message form  */}
               <form onSubmit={onSubmit}>
                 { !loggedUser && (
                   <>
+                    {/* name */}
                     <div className="mb-3">
                       <label className="form-label">Adınız</label>
                       <input onChange={e=>setName(e.target.value)} type="text" className="form-control" />
                     </div>
-
+                    {/* email */}
                     <div className="mb-3">
                       <label className="form-label">Emailiniz</label>
                       <input onChange={e=>setEmail(e.target.value)} type="text" className="form-control" />
                     </div>
                   </>
                 ) }
-
+                {/* comment */}
                 <div className="mb-3">
                   <label className="form-label">Yorumunuz</label>
                   <textarea onChange={e=>setComment(e.target.value)} type="text" className="form-control" />
                 </div>
 
+                {/* form submit button */}
                 <div className="text-end">
                   <button className="btn-orange">Gönder</button>
                 </div>

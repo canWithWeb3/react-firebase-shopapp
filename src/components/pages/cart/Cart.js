@@ -13,6 +13,7 @@ const Cart = () => {
     <section id="cart" className='container pt-5 pb-5 mb-5'>
       
       <div className="row">
+        {/* cart table */}
         <div className="col-md-12 mx-auto">
           { userCartProducts.length > 0 ? (
               <CartTable userCartProducts={userCartProducts} />
@@ -21,7 +22,7 @@ const Cart = () => {
               Sepetinizde ürün yok.
             </div>
           ) }
-
+          {/* cart summary */}
           <div className="col-md-3 ms-auto border-3">
           <div>
             <div className='d-flex justify-content-between mb-2'>

@@ -109,43 +109,55 @@ const Register = () => {
       <div className="container">
         <div className="row d-flex align-items-center pt-5 justify-content-center">
 
+          {/* register image */}
           <div className="col-lg-7 col-12 order-lg-1 order-2">
             <img src="/img/image1.png" alt="" className="img-fluid" />
           </div>
+
+          {/* register card */}
           <div className="col-lg-5 col-12 order-lg-2 order-1">
             <div className="card bg-white py-3">
               <h3 className='mb-3 text-center text-decoration-underline'>Kayıt Ol</h3>
               <div className="card-body px-5">
+                {/* error alert */}
                 { error && (
                   <div className="alert alert-warning">
                     { error }
                   </div>
                 ) }
+                {/* singIn with google */}
                 <button disabled={loadingBtn} onClick={googleLoginBtn} className="btn btn-danger d-block w-100 text-center">
                   <i className="fab fa-google me-2"></i> Google ile Kaydol 
                 </button>
                 <hr />
+                {/* form */}
                 <form onSubmit={onSubmit}>
+                  {/* username */}
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Kullanıcı Adı:</label>
                     <input onChange={e=>setUsername(e.target.value)} type="text" className="form-control" />
                   </div>
+                  {/* email */}
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email:</label>
                     <input onChange={e=>setEmail(e.target.value)} type="text" className="form-control" />
                   </div>
+                  {/* password */}
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Parola (Tekrar):</label>
                     <input onChange={e=>setPassword(e.target.value)} type="password" className="form-control" />
                   </div>
+                  {/* repassword */}
                   <div className="mb-3">
                     <label htmlFor="repassword" className="form-label">Parola:</label>
                     <input onChange={e=>setRepassword(e.target.value)} type="password" className="form-control" />
                   </div>
 
+                  {/* form submit button */}
                   <button className="btn-orange d-block w-100 mb-3">
                     { loadingBtn ? "Bekleyiniz..." : "Kayıt Ol" }
                   </button>
+                  {/* go login */}
                   <div className='text-secondary d-flex flex-wrap gap-3 justify-content-center'>
                     <span className='d-inline-block'>Hesabın var mı?</span>
                     <Link to="/giris-yap" className="d-inline-block text-center text-decoration-none">Giriş Yap</Link>

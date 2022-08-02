@@ -64,9 +64,11 @@ const LatestProductsItem = ({p, loggedUser}) => {
   return (
     <div className="col-lg-3 col-md-4 col-6">
       <div className="card border-0">
+        {/* product image and go link */}
         <Link to={`/urun-detay/${p.id}`} className="card-img">
           <img src={`${p.image}`} alt={`${p.name}`} className="img-fluid" loading='lazy' />
         </Link>
+        {/* product infos and add basket */}
         <div className="card-body">
           <h5>{p.name}</h5>
           <div className="home-products-stars text-orange">
